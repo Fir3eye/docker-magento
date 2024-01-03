@@ -24,7 +24,7 @@ docker-compose exec -T phpfpm bin/magento setup:install --base-url=http://magent
 
 ## Download Resource from link
 ```
-wget 
+wget https://github.com/magento/magento2/archive/2.4.6.tar.gz
 ```
 ## Copy Resource on Contianer
 ```
