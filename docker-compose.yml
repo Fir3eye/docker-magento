@@ -1,26 +1,29 @@
-version: '3'
+version: '3.3'
+
 services:
-  web_server:
-    build:
-      context: ./web_server/
-    container_name: apache2
-    volumes:
-      - ./magento2:/var/www/html
-      - ./web_server/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
-    ports:
-      - "80:80"
-    links:
-      - database_server
- 
-  database_server:
-    build:
-      context: ./database_server/
-      args:
-        - mysql_password=mention_your_mysql_root_password
-        - mysql_database=mention_your_database_name
-    container_name: mysql
-    volumes: 
-      - ./database_server/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
-      - ./database_server/mysql.sh:/etc/mysql.sh
-    ports:
-      - "3306:3306"
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: magento002
+       MYSQL_USER: magento002
+       MYSQL_PASSWORD: magento002
+
+   magento:
+     depends_on:
+       - db
+     image: alexcheng/magento2:latest
+     ports:
+       - "8002:80"
+     restart: always
+     environment:
+       MAGENTO_DB_HOST: db:3306
+       MAGENTO_DB_USER: magento002
+       MAGENTO_DB_PASSWORD: magento002
+       MAGENTO_DB_NAME: magento002
+
+volumes:
+   db_data: {}
