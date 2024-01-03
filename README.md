@@ -1,5 +1,7 @@
 # docker-magento
-## Build the image
+
+### After Clone Repository
+## Start by creating the working directory and within this folder, create the following directories:
 ```
 mkdir -p magento services/nginx_log services/phpfpm_log services/sock_data services/mysql_data services/mysql_log services/redis_data services/es_data services/es_log
 ```
