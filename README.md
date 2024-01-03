@@ -1,5 +1,4 @@
 # docker-magento
-# magento-docker
 ## Build the image
 ```
 docker-compose build
