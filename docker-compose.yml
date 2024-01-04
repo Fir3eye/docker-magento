@@ -34,3 +34,4 @@ services:
 volumes:
   magento-db-data:
   magento-data:
+  
