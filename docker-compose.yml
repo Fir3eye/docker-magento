@@ -27,7 +27,7 @@ services:
       MAGENTO_ADMIN_USER: admin
       MAGENTO_ADMIN_PASSWORD: admin123
       MAGENTO_ADMIN_EMAIL: admin@example.com
-      MAGENTO_BASE_URL: http://localhost:8080/
+      MAGENTO_BASE_URL: http://localhost:8081/
     volumes:
       - magento-data:/var/www/html
 
