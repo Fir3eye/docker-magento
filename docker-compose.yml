@@ -16,7 +16,7 @@ services:
   magento:
     image: alexcheng/magento2
     ports:
-      - "8080:80"
+      - "8081:80"
     depends_on:
       - db
     environment:
